@@ -30,7 +30,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ Fizz เมื่อ input = 6',()=>{
+    it('ต้องได้ Fizz เมื่อ input = 6', () => {
       const input = 6
       const expected = "Fizz"
 
@@ -39,16 +39,16 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ 8 เมื่อ input = 8',()=>{
+    it('ต้องได้ 8 เมื่อ input = 8', () => {
       const input = 8
-      const expected= '8'
+      const expected = '8'
 
       const result = service.fizzbuzzFilter(input)
 
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ Fizz เมื่อ input = 9',()=>{
+    it('ต้องได้ Fizz เมื่อ input = 9', () => {
       const input = 9
       const expected = "Fizz"
 
@@ -57,7 +57,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ Buzz เมื่อ input = 10',()=>{
+    it('ต้องได้ Buzz เมื่อ input = 10', () => {
       const input = 10
       const expected = "Buzz"
 
@@ -66,7 +66,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ 13 เมื่อ input = 13',()=>{
+    it('ต้องได้ 13 เมื่อ input = 13', () => {
       const input = 13
       const expected = "13"
 
@@ -75,7 +75,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ FizzBuzz เมื่อ input = 15',()=>{
+    it('ต้องได้ FizzBuzz เมื่อ input = 15', () => {
       const input = 15
       const expected = "FizzBuzz"
 
@@ -84,7 +84,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ Buzz เมื่อ input = 20',()=>{
+    it('ต้องได้ Buzz เมื่อ input = 20', () => {
       const input = 20
       const expected = "Buzz"
 
@@ -93,7 +93,7 @@ describe('FizzbuzzService', () => {
       expect(result).toBe(expected)
     })
 
-    it('ต้องได้ FizzBuzz เมื่อ input = 30',()=>{
+    it('ต้องได้ FizzBuzz เมื่อ input = 30', () => {
       const input = 30
       const expected = "FizzBuzz"
 
@@ -105,22 +105,22 @@ describe('FizzbuzzService', () => {
   })
 
   describe('Invalid Case', () => {
-    it('ต้อง Invalid เมื่อใส่เลขที่น้อยกว่า 1',()=>{
+    it('ต้อง Invalid เมื่อใส่เลขที่น้อยกว่า 1', () => {
       const input = 0
       const expected = "Invalid Number"
 
-      const result = ()=>service.fizzbuzzFilter(input)
-      
+      const result = () => service.fizzbuzzFilter(input)
+
       expect(result).toThrow(expected)
     })
-      it('ต้อง Invalid เมื่อใส่เลขทศนิยม',()=>{
-        const input = 1.5
-        const expected = "Invalid Number"
+    it('ต้อง Invalid เมื่อใส่เลขทศนิยม', () => {
+      const input = 1.5
+      const expected = "Invalid Number"
 
-        const result = ()=>service.fizzbuzzFilter(input)
+      const result = () => service.fizzbuzzFilter(input)
 
-        expect(result).toThrow(expected)
-      })
+      expect(result).toThrow(expected)
+    })
 
   })
 
