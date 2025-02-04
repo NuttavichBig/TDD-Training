@@ -17,4 +17,27 @@ export class YahtzyService {
             return curr === target ? prv+curr : prv
         },0)
     }
+    numberOfaKind(dice : number[] , target : number) : number{
+
+        // checking alternative case (not 3 or 4 of a kind)
+        const kindCount = {}
+        let i = 0
+        do{
+            if(!kindCount[dice[i]]){
+                kindCount[dice[i]]= 0
+            }
+            kindCount[dice[i]]++
+            if(kindCount[dice[i]] >= target){
+                break;
+            }
+            i++
+        }while(i < dice.length)
+        if(i >= dice.length){
+            return 0
+        }
+
+        // calculate result
+        const result:number = dice.reduce((prv,curr)=>prv+curr,0)
+        return result
+    }
 }
