@@ -271,6 +271,14 @@ describe('YahtzyService', () => {
 
           expect(result).toBe(expected)
         })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [3,3,3,3,3]',()=>{
+          const dice = [3,3,3,3,3]
+          const expected = 0
+
+          const result = service.fullHouse(dice)
+
+          expect(result).toBe(expected)
+        })
       })
     })
   })

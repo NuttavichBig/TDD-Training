@@ -62,6 +62,9 @@ export class YahtzyService {
         return dice.reduce((acc,curr)=>acc+curr,0)
     }
     fullHouse(dice : number[]): 25 | 0 {
+        if(dice.filter(val=>val === 2).length < 2){
+            return 0
+        }
         return 25
     }
 }
