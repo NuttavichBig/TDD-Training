@@ -1,7 +1,21 @@
 import { Injectable } from '@nestjs/common';
 
+export type diceValue = 1 | 2 | 3 | 4 | 5 | 6
 @Injectable()
 export class YahtzyService {
+    validateDice(dice : number[]) :asserts dice is diceValue[]{
+        if(dice.length === 0){
+            throw new Error("Dice must be provided")
+        }
+        if(dice.length !== 5){
+            throw new Error("Dice array length must be 5 long")
+        }
+        dice.map((value)=>{
+            if(value > 6 || value < 1){
+                throw new Error("Each dice must be between 1-6")
+            }
+        })
+    }
     sumDiceByTarget( dice : number[] , target : number) : number{
         if(dice.length === 0){
             throw new Error("Dice must be provided")
@@ -18,6 +32,10 @@ export class YahtzyService {
         },0)
     }
     numberOfaKind(dice : number[] , target : number) : number{
+        // validate target
+        if(target !== 3 && target !== 4){
+            throw new Error("Target must be 3 or 4")
+        }
 
         // checking alternative case (not 3 or 4 of a kind)
         const kindCount = {}
@@ -39,5 +57,11 @@ export class YahtzyService {
         // calculate result
         const result:number = dice.reduce((prv,curr)=>prv+curr,0)
         return result
+    }
+    chance(dice : number[]): number{
+        return dice.reduce((acc,curr)=>acc+curr,0)
+    }
+    fullHouse(dice : number[]): 25 | 0 {
+        return 25
     }
 }
