@@ -55,16 +55,29 @@ export class YahtzyService {
         }
 
         // calculate result
-        const result:number = dice.reduce((prv,curr)=>prv+curr,0)
-        return result
+        return dice.reduce((prv,curr)=>prv+curr,0)
     }
     chance(dice : number[]): number{
         return dice.reduce((acc,curr)=>acc+curr,0)
     }
     fullHouse(dice : number[]): 25 | 0 {
-        if(dice.filter(val=>val === 2).length < 2){
-            return 0
+        const kindCount = {}
+        dice.map(value=>{
+            if(!kindCount[value]){
+                kindCount[value]= 0
+            }
+            kindCount[value]++
+        })
+        const countArray = Object.values(kindCount)
+        if(countArray.length > 2 || !countArray.includes(2) || !countArray.includes(3)){
+            return 0 
         }
         return 25
+    }
+    yahtzy(dice : number[]): 50 | 0{
+        for(let i = 0 ; i < dice.length ; i++){
+            if(dice[0] !== dice[i])return 0
+        }
+        return 50
     }
 }

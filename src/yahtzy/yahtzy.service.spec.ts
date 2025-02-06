@@ -279,6 +279,84 @@ describe('YahtzyService', () => {
 
           expect(result).toBe(expected)
         })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [1,2,2,1,3]',()=>{
+          const dice = [1,2,2,1,3]
+          const expected = 0
+
+          const result = service.fullHouse(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [2,3,4,5,6]',()=>{
+          const dice = [2,3,4,5,6]
+          const expected = 0
+
+          const result = service.fullHouse(dice)
+
+          expect(result).toBe(expected)
+        })
+      })
+    })
+    describe('Yahtzy',()=>{
+      describe('Success Case',()=>{
+        it('ต้องได้ผลลัพธ์เป็น 50 เมื่อส่ง dice [3,3,3,3,3]',()=>{
+          const dice = [3,3,3,3,3]
+          const expected = 50
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+      })
+      describe('Alternative Case',()=>{
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [2,3,3,3,3]',()=>{
+          const dice = [2,3,3,3,3]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [3,3,3,3,1]',()=>{
+          const dice = [3,3,3,3,1]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [3,3,3,1,3]',()=>{
+          const dice = [3,3,3,1,3]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [3,3,1,3,3]',()=>{
+          const dice = [3,3,1,3,3]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [3,1,3,3,3]',()=>{
+          const dice = [3,1,3,3,3]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [1,3,3,3,3]',()=>{
+          const dice = [1,3,3,3,3]
+          const expected = 0
+
+          const result = service.yahtzy(dice)
+
+          expect(result).toBe(expected)
+        })
       })
     })
   })
