@@ -359,5 +359,112 @@ describe('YahtzyService', () => {
         })
       })
     })
+    describe('Straight',()=>{
+      describe('Success Case',()=>{
+        it('ต้องได้ผลลัพธ์เป็น 30 เมื่อส่ง dice [1,2,3,4,6] และ target เป็น small',()=>{
+          const dice = [1,2,3,4,6]
+          const target = 'small'
+          const expected = 30
+
+          const result = service.straight(dice, target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 30 เมื่อส่ง dice [3,2,4,6,1] และ target เป็น small',()=>{
+          const dice = [3,2,4,6,1]
+          const target = 'small'
+          const expected = 30
+
+          const result = service.straight(dice, target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 30 เมื่อส่ง dice [2,3,4,5,6] และ target เป็น small',()=>{
+          const dice = [2,3,4,5,6]
+          const target = 'small'
+          const expected = 30
+
+          const result = service.straight(dice, target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 40 เมื่อส่ง dice [2,3,4,5,6] และ target เป็น large',()=>{
+          const dice = [2,3,4,5,6]
+          const target = 'large'
+          const expected = 40
+
+          const result = service.straight(dice, target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 40 เมื่อส่ง dice [6,4,3,2,5] และ target เป็น large',()=>{
+          const dice = [6,4,3,2,5]
+          const target = 'large'
+          const expected = 40
+
+          const result = service.straight(dice, target)
+
+          expect(result).toBe(expected)
+        })
+
+      })
+      describe('Alternative Case',()=>{
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [2,3,3,2,4] และ target เป็น small',()=>{
+          const dice = [2,3,3,2,4]
+          const target = 'small'
+          const expected = 0
+
+          const result = service.straight(dice , target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [2,3,3,2,4] และ target เป็น large',()=>{
+          const dice = [2,3,3,2,4]
+          const target = 'large'
+          const expected = 0
+
+          const result = service.straight(dice , target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [1,2,4,5,6] และ target เป็น small',()=>{
+          const dice = [1,2,4,5,6] 
+          const target = 'small'
+          const expected = 0
+
+          const result = service.straight(dice , target)
+
+          expect(result).toBe(expected)
+        })
+        it('ต้องได้ผลลัพธ์เป็น 0 เมื่อส่ง dice [1,2,4,5,6] และ target เป็น large',()=>{
+          const dice = [1,2,4,5,6] 
+          const target = 'large'
+          const expected = 0
+
+          const result = service.straight(dice , target)
+
+          expect(result).toBe(expected)
+        })
+        // ติด block TypeScript
+        // it('ต้อง error เมื่อส่ง dice [1,2,3,4,5] และ target เป็น mini',()=>{
+        //   const dice =[1,2,3,4,5]
+        //   const target = 'mini'
+        //   const expected = "Target must be small or large"
+
+        //   const result = ()=>service.straight(dice,target)
+
+        //   expect(result).toThrow(expected)
+        // })
+        // it('ต้อง error เมื่อส่ง dice [1,2,3,4,5] และ target เป็น Big',()=>{
+        //   const dice =[1,2,3,4,5]
+        //   const target = 'Big'
+        //   const expected = "Target must be small or large"
+
+        //   const result = ()=>service.straight(dice,target)
+
+        //   expect(result).toThrow(expected)
+        // })
+      })
+    })
   })
 });

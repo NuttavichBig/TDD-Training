@@ -80,4 +80,26 @@ export class YahtzyService {
         }
         return 50
     }
+    straight(dice : number[] , target : 'small' | 'large'){
+        if(target !== 'small' && target !== 'large'){
+            throw new Error("Target must be small or large")
+        }
+       dice.sort((a,b)=>a-b)
+       if(target === 'small'){
+            if(dice[1]-dice[0] !==1){
+                dice.splice(0,1)
+            }else{
+                dice.splice(4,1)
+            }
+       }
+       for(let i = 1 ; i < dice.length ; i++){
+        if(dice[i]-dice[i-1] !== 1){
+            return 0
+        }
+       }
+       if(target === 'small'){
+        return 30
+       }
+       return 40
+    }
 }
